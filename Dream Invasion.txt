@@ -1,0 +1,28 @@
+					Dream Invasion
+
+-Elevator pitch :
+
+	Un jeu 2D qui confronte 2 joueurs dont le but est de s'enfoncer dans le reve de l'autre.
+	Une fois dans le reve de l'adversaire, celui-ci controle l'environnement pour vous en faire sortir.
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-Joueur cible :
+
+	Tout le monde, pour ceux qui veulent jouer a plusieurs.
+
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+-Gameplay :
+
+	0 et boss : action, confrontation, plateforme.
+	Intermediaire(s) : Attaquant : action, confrontation, plateforme.
+			   Defenseur : Gestion.
+
+
+-Game design :
+	3C : dependant du niveau.
+	challenge et action de jeu : plannification, reflexe.
+	type de competance mobilisee : cognitif, coordination motrice.
+	obstacle type : adversaire et environnement.
+	objectif : avancer et/ou repousser.
