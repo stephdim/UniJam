@@ -1,17 +1,13 @@
 fileFormatVersion: 2
-guid: fc96945ec975b0541a884291072634be
-timeCreated: 1448117850
+guid: 7b2af99de4265de438dbc48c933298a1
+timeCreated: 1448137298
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: animation attaque_0
-    21300002: animation attaque_1
-    21300004: animation attaque_2
-    21300006: animation attaque_3
-    21300008: animation attaque_4
-    21300010: animation attaque_5
-    21300012: animation attaque_6
-    21300014: animation attaque_7
+    21300000: warrior movement_0
+    21300002: warrior movement_1
+    21300004: warrior movement_2
+    21300006: warrior movement_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,37 +54,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: animation attaque_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_3
+    - name: warrior movement_0
       rect:
         serializedVersion: 2
         x: 0
@@ -98,7 +64,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_4
+    - name: warrior movement_1
       rect:
         serializedVersion: 2
         x: 32
@@ -108,7 +74,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_5
+    - name: warrior movement_2
       rect:
         serializedVersion: 2
         x: 64
@@ -118,20 +84,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_6
+    - name: warrior movement_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: animation attaque_7
-      rect:
-        serializedVersion: 2
-        x: 32
         y: 0
         width: 32
         height: 64
