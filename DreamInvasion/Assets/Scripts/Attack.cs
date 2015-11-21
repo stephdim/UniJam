@@ -21,7 +21,7 @@ public class Attack : MonoBehaviour {
     RotateOnKeyPressed scriptRotation;
 
     Vector3 origin;
-
+    Character player;
 
     bool attacked;
 
@@ -31,30 +31,18 @@ public class Attack : MonoBehaviour {
         enemy = "Test_attack";
         attacked = false;
         origin = this.transform.position;
-
+        player = GetComponentInParent<Character>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
 
-        if (Input.GetKeyDown(KeyCode.W) && !attacked) {
+        if (Input.GetButtonDown("Fire" + player.id) && !attacked) {
             
             this.GetComponent<BoxCollider2D>().enabled = true;
 
             scriptRotation.RotateDown();
-
-            //parent.Rotate((new Vector3(0, 0, -60.0f)));
-
-            //this.transform.Rotate((new Vector3(0,0,1)), 60.0f);
-
-            //this.transform.Rotate(new Vector3(0, -90 * Time.deltaTime * speed, 0));
-
-            //this.transform.Translate(new Vector3(Mathf.PingPong(Time.time,speed),0,0));
-
-            //transform.position = origin + (transform.forward * (Mathf.PingPong(Time.time * distance * speed + (distance * speed / 2), distance * 2) - distance));
-
-            // this.transform.Translate(new Vector3(speed * Time.deltaTime ,0 ,0 ));
 
             this.timeOfLastAttack = Time.time;
             attacked = true;
@@ -66,12 +54,6 @@ public class Attack : MonoBehaviour {
             attacked = false;
 
             scriptRotation.RotateUp();
-
-            //scriptRotation.Rotate(new Vector3(0, 60.0f, 0), Space.World);
-
-            //this.transform.Rotate(new Vector3(0, 90 * Time.deltaTime * speed, 0));
-            //this.transform.Translate(new Vector3(Mathf.PingPong(Time.time, -speed), 0, 0));
-            //this.transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
 	
 	}

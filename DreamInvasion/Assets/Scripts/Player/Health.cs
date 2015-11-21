@@ -4,7 +4,7 @@ using System;
 
 public class Health : MonoBehaviour {
 
-    float lifeLeft;
+    public float lifeLeft;
     float lifeMax;
 
     Character scriptCharacter;
