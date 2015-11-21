@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 979392dec39b8e84193f039d8ceb7031
-timeCreated: 1448105452
+guid: 1e5fbc2e1d54d114080800f72b6eb1d3
+timeCreated: 1448137274
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sprite_1 animation run final_0
-    21300002: sprite_1 animation run final_1
-    21300004: sprite_1 animation run final_2
-    21300006: sprite_1 animation run final_3
-    21300008: sprite_1 animation run final_4
-    21300010: sprite_1 animation run final_5
-    21300012: sprite_1 animation run final_6
+    21300000: warrior jump_0
+    21300002: warrior jump_1
+    21300004: warrior jump_2
+    21300006: warrior jump_3
+    21300008: warrior jump_4
+    21300010: warrior jump_5
+    21300012: warrior jump_6
+    21300014: warrior jump_7
+    21300016: warrior jump_8
+    21300018: warrior jump_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,7 +60,37 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: sprite_1 animation run final_0
+    - name: warrior jump_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_3
       rect:
         serializedVersion: 2
         x: 0
@@ -67,7 +100,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_1
+    - name: warrior jump_4
       rect:
         serializedVersion: 2
         x: 32
@@ -77,7 +110,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_2
+    - name: warrior jump_5
       rect:
         serializedVersion: 2
         x: 64
@@ -87,7 +120,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_3
+    - name: warrior jump_6
       rect:
         serializedVersion: 2
         x: 0
@@ -97,7 +130,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_4
+    - name: warrior jump_7
       rect:
         serializedVersion: 2
         x: 32
@@ -107,7 +140,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_5
+    - name: warrior jump_8
       rect:
         serializedVersion: 2
         x: 64
@@ -117,7 +150,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: sprite_1 animation run final_6
+    - name: warrior jump_9
       rect:
         serializedVersion: 2
         x: 0
