@@ -63,6 +63,8 @@ sysinfo.txt
 /*.pidb
 /*.suo
 /*.sln*
+*.sln*
 /*.user
 /*.unityproj
 /*.booproj
+*.sln
