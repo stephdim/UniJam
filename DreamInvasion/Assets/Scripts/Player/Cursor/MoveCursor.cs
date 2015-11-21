@@ -5,6 +5,8 @@ public class MoveCursor : MonoBehaviour {
 
 
     GameObject viseur;
+    [SerializeField]
+    Stats stats;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +15,8 @@ public class MoveCursor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float dx = Input.GetAxis("Horizontal2");
-        float dy = Input.GetAxis("Vertical2");
+        float dx = Input.GetAxis("Horizontal" + stats.id);
+        float dy = Input.GetAxis("Vertical" + stats.id);
 
         if (Mathf.Abs(dx) >= 0.1f) {
             transform.position += 0.5f * dx * Vector3.right;
