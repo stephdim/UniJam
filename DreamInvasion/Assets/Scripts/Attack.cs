@@ -42,7 +42,7 @@ public class Attack : MonoBehaviour {
             
             this.GetComponent<BoxCollider2D>().enabled = true;
 
-            scriptRotation.RotateDown();
+            //scriptRotation.RotateDown();
 
             this.timeOfLastAttack = Time.time;
             attacked = true;
@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour {
             this.GetComponent<BoxCollider2D>().enabled = false;
             attacked = false;
 
-            scriptRotation.RotateUp();
+            //scriptRotation.RotateUp();
         }
 	
 	}
