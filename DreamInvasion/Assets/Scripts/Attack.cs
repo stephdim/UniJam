@@ -79,8 +79,8 @@ public class Attack : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         
-        if (other.CompareTag(enemy)) {
-            Debug.Log("hit" + enemy);
+        if (other.CompareTag("Player")) {
+            other.GetComponent<Health>().TakeDamage(damage);
         }
     }
 }

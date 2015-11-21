@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Health : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class Health : MonoBehaviour {
     float lifeMax;
 
     Character scriptCharacter;
+    public static event Action<int> OnDeath;
 
     // Use this for initialization
     void Start () {
@@ -23,10 +25,12 @@ public class Health : MonoBehaviour {
 	
 	}
 
-    public void takeDamage(float damage) {
+    public void TakeDamage(float damage) {
 
         if(lifeLeft-damage <= 0) {
-            lifeLeft = 0;
+            if (OnDeath != null) {
+                OnDeath(scriptCharacter.id);
+            }
 
             //player dead
 
