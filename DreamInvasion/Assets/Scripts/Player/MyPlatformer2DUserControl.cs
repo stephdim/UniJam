@@ -32,7 +32,7 @@ public class MyPlatformer2DUserControl : MonoBehaviour
     {
         // Read the inputs.
         bool crouch = Input.GetKey(KeyCode.LeftControl);
-        float h = CrossPlatformInputManager.GetAxis("Horizontal");
+        float h = CrossPlatformInputManager.GetAxis("Horizontal1");
         // Pass all parameters to the character control script.
         m_Character.Move(h, crouch, m_Jump);
         Speed = h;
