@@ -38,10 +38,10 @@ public class Spike : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.CompareTag("Player")) {
+        if (other.transform.CompareTag("Player")) {
             Debug.Log("hit" + "Player");
 
-            other.gameObject.GetComponent<Health>().takeDamage(this.damage);
+            other.gameObject.GetComponent<Health>().TakeDamage(this.damage);
         }
     }
 }
