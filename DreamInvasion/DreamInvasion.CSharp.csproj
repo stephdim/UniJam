@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -81,8 +75,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Dash.cs" />
+    <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Character.cs" />
+    <Compile Include="Assets\Scripts\Player\CreateObject.cs" />
+    <Compile Include="Assets\Scripts\Player\DetectPlateform.cs" />
+    <Compile Include="Assets\Scripts\Player\Health.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveCursor.cs" />
+    <Compile Include="Assets\Scripts\Player\MyPlatformer2DUserControl.cs" />
     <Compile Include="Assets\Scripts\RotateOnKeyPressed.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\Mob.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\ObjectType.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\Spawnable.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
