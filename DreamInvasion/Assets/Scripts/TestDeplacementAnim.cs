@@ -21,7 +21,6 @@ public class TestDeplacementAnim : MonoBehaviour {
 
     private void FixedUpdate() {
         // Read the inputs.
-        bool crouch = Input.GetKey(KeyCode.LeftControl);
         move = CrossPlatformInputManager.GetAxis("Horizontal1");
 
     }
@@ -29,47 +28,44 @@ public class TestDeplacementAnim : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (move > 0 && !m_FacingRight) {
+            // ... flip the player.
+            Flip();
+        }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight) {
+            // ... flip the player.
+            Flip();
+        }
+
+        if (move > 0) {
             m_Anim.SetBool("rien", false);
             m_Anim.SetBool("droite", true);
             m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
 
-            if (move > 0 && !m_FacingRight) {
-                // ... flip the player.
-                Flip();
-            }
-                // Otherwise if the input is moving the player left and the player is facing right...
-                else if (move < 0 && m_FacingRight) {
-                // ... flip the player.
-                Flip();
-            }
+            
 
         }
 
-        if (Input.GetKeyDown(KeyCode.O)) {
+        if (move < 0) {
+
+            m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+
             m_Anim.SetBool("rien", false);
             m_Anim.SetBool("gauche", true);
-            transform.Translate(Vector3.left);
         }
 
-        if (Input.GetKeyUp(KeyCode.P)) {
+        if (Mathf.Approximately(move,0.0f)) {
             m_Anim.SetBool("droite", false);
             m_Anim.SetBool("gauche", false);
             m_Anim.SetBool("rien", true);
 
         }
-
-        if (Input.GetKeyUp(KeyCode.O)) {
-            m_Anim.SetBool("droite", false);
-            m_Anim.SetBool("gauche", false);
-            m_Anim.SetBool("rien", true);
-
-        }
-
     }
 
     private void Flip() {
+        Debug.Log("ici");
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
 
