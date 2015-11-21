@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInvasion.CSharp.Plugins", "DreamInvasion.CSharp.Plugins.csproj", "{E0B26F60-398E-DFAD-5C48-A03653CBF50D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInvasion.CSharp", "DreamInvasion.CSharp.csproj", "{F59E4867-AA9E-9FD0-7E76-D6D1017B02F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamInvasion.CSharp.Editor", "DreamInvasion.CSharp.Editor.csproj", "{0720C955-728E-25C9-91DE-7EC3EB4BFB9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0B26F60-398E-DFAD-5C48-A03653CBF50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0B26F60-398E-DFAD-5C48-A03653CBF50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0B26F60-398E-DFAD-5C48-A03653CBF50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0B26F60-398E-DFAD-5C48-A03653CBF50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F59E4867-AA9E-9FD0-7E76-D6D1017B02F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F59E4867-AA9E-9FD0-7E76-D6D1017B02F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F59E4867-AA9E-9FD0-7E76-D6D1017B02F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F59E4867-AA9E-9FD0-7E76-D6D1017B02F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0720C955-728E-25C9-91DE-7EC3EB4BFB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0720C955-728E-25C9-91DE-7EC3EB4BFB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0720C955-728E-25C9-91DE-7EC3EB4BFB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0720C955-728E-25C9-91DE-7EC3EB4BFB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
