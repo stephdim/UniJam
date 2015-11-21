@@ -17,7 +17,7 @@ public class CreateObject : MonoBehaviour {
 	}
 	
 	void Update() {
-	    if (Input.GetButtonDown("Fire1")) {
+	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id)) {
             Create();
         }
 	}
