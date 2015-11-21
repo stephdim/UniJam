@@ -11,6 +11,7 @@ public class Square : MonoBehaviour {
     float yMax;
     bool isFalling;
     bool isFallen;
+
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         timer = cooldown;
@@ -19,6 +20,7 @@ public class Square : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	    if (Mathf.Abs(player.transform.position.x - transform.position.x) <= 3) {
             isFalling = true;
         }
