@@ -18,19 +18,21 @@ public class GameManager : MonoBehaviour {
     }
 
     private void OnDeath(int id) {
+        levels[currentlevel].SetActive(false);
         if (currentlevel == 0) {
-            levels[currentlevel].SetActive(false);
             currentlevel = 1;
             levels[currentlevel].SetActive(true);
             currentLoser = id;
         } else if (id == currentLoser) {
-            levels[currentlevel].SetActive(false);
             currentlevel++;
             if (currentlevel >= levels.Length) {
                 currentlevel = 0;
                 Time.timeScale = 0f;
                 Debug.Log("Game Over");
             }
+            levels[currentlevel].SetActive(true);
+        } else {
+            currentlevel--;
             levels[currentlevel].SetActive(true);
         }
     }
