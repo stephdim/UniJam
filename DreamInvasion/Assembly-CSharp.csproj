@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Camera\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
-     <Compile Include="Assets\Scripts\Dash.cs" />
      <Compile Include="Assets\Scripts\EndLevel.cs" />
      <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
      <Compile Include="Assets\Scripts\Player\Character.cs" />
@@ -60,11 +59,14 @@
      <Compile Include="Assets\Scripts\Player\Health.cs" />
      <Compile Include="Assets\Scripts\Player\MyPlatformer2DUserControl.cs" />
      <Compile Include="Assets\Scripts\RotateOnKeyPressed.cs" />
+     <Compile Include="Assets\Scripts\RotateSword.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Mob.cs" />
      <Compile Include="Assets\Scripts\Spawnable\ObjectType.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Spawnable.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
+     <Compile Include="Assets\Scripts\StartBarrelExplosionAnimation.cs" />
+     <Compile Include="Assets\Scripts\TestDeplacementAnim.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

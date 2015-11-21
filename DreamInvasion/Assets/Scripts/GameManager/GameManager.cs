@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour {
                     cursors[i].SetActive(true);
                 } else {
                     players[i].SetActive(true);
-                    players[i].transform.position = safezones[i - 1].transform.position;
+                    players[i].transform.position = safezones[i].transform.position;
                     cursors[i].SetActive(false);
                 }
             }
