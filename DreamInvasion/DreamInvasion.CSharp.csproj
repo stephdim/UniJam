@@ -91,6 +91,8 @@
     <Compile Include="Assets\Scripts\Spawnable\Spawnable.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
+    <Compile Include="Assets\Scripts\StartBarrelExplosionAnimation.cs" />
+    <Compile Include="Assets\Scripts\TestDeplacementAnim.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
