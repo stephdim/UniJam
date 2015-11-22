@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Player\Health.cs" />
     <Compile Include="Assets\Scripts\Player\LockRot.cs" />
     <Compile Include="Assets\Scripts\Player\MyPlatformer2DUserControl.cs" />
+    <Compile Include="Assets\Scripts\Player\MyPlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\RotateOnKeyPressed.cs" />
     <Compile Include="Assets\Scripts\RotateSword.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Mob.cs" />
