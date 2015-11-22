@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour {
                 if (i+1 == currentLoser) {
                     players[i].SetActive(false);
                     cursors[i].SetActive(true);
+                    cursors[i].transform.position = safezones[currentlevel - 1].transform.position + 2 * Vector3.up;
                 } else {
                     players[i].SetActive(true);
                     players[i].transform.position = safezones[currentlevel-1].transform.position;
