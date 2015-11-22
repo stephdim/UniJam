@@ -58,14 +58,15 @@
      <Compile Include="Assets\Scripts\Player\Cursor\MoveCursor.cs" />
      <Compile Include="Assets\Scripts\Player\Cursor\Stats.cs" />
      <Compile Include="Assets\Scripts\Player\Health.cs" />
+     <Compile Include="Assets\Scripts\Player\LockRot.cs" />
      <Compile Include="Assets\Scripts\Player\MyPlatformer2DUserControl.cs" />
      <Compile Include="Assets\Scripts\Player\MyPlatformerCharacter2D.cs" />
      <Compile Include="Assets\Scripts\RotateOnKeyPressed.cs" />
      <Compile Include="Assets\Scripts\RotateSword.cs" />
+     <Compile Include="Assets\Scripts\Spawnable\Fire.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Mob.cs" />
      <Compile Include="Assets\Scripts\Spawnable\ObjectType.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Spawnable.cs" />
-     <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
      <Compile Include="Assets\Scripts\StartBarrelExplosionAnimation.cs" />
      <Compile Include="Assets\Scripts\StartLevel.cs" />

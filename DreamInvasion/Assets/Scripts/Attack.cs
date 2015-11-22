@@ -12,6 +12,10 @@ public class Attack : MonoBehaviour {
     [SerializeField]
     float distance = 1;
 
+    [SerializeField]
+    public Animator m_Anim;
+
+
     float timeOfLastAttack;
     [SerializeField]
     float cooldownBetweenAttacks = 0.1f;
@@ -36,7 +40,12 @@ public class Attack : MonoBehaviour {
 
 
         if (Input.GetButtonDown("Fire" + player.id) && !attacked) {
-            
+
+            m_Anim.SetBool("attack", true);
+            m_Anim.SetBool("move", false);
+            m_Anim.SetBool("idle", false);
+            m_Anim.SetBool("jump", false);
+
             this.GetComponent<BoxCollider2D>().enabled = true;
 
             scriptRotation.RotateDown();
@@ -46,6 +55,11 @@ public class Attack : MonoBehaviour {
         }
 
         if(attacked && Time.time > timeOfLastAttack + cooldownBetweenAttacks) {
+
+            m_Anim.SetBool("attack", false);
+            m_Anim.SetBool("move", false);
+            m_Anim.SetBool("idle", true);
+            m_Anim.SetBool("jump", false);
 
             this.GetComponent<BoxCollider2D>().enabled = false;
             attacked = false;
