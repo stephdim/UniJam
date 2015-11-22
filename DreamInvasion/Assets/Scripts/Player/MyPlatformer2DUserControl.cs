@@ -11,11 +11,18 @@ public class MyPlatformer2DUserControl : MonoBehaviour
     private bool m_Jump;
     public float Speed { get; private set; }
     Character player;
+    private Animator anim;
+    bool crouch = false;
 
     private void Awake()
     {
         m_Character = GetComponent<PlatformerCharacter2D>();
         player = GetComponent<Character>();
+    }
+
+    void Start() {
+
+        anim = GetComponent<Animator>();
     }
 
 
@@ -24,6 +31,7 @@ public class MyPlatformer2DUserControl : MonoBehaviour
         if (!m_Jump) {
             // Read the jump input in Update so button presses aren't missed.
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump"+player.id);
+
         }
     }
 
@@ -31,7 +39,7 @@ public class MyPlatformer2DUserControl : MonoBehaviour
     private void FixedUpdate()
     {
         // Read the inputs.
-        bool crouch = Input.GetKey(KeyCode.LeftControl);
+        //bool crouch = Input.GetKey(KeyCode.LeftControl);
         float h = CrossPlatformInputManager.GetAxis("Horizontal"+player.id);
         // Pass all parameters to the character control script.
         m_Character.Move(h, crouch, m_Jump);

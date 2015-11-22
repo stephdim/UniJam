@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+
+    anim.SetBool("idling", false);
+            anim.SetBool("attacking", false);
+            anim.SetBool("moving", false);
+            anim.SetBool("jumping", true);
+    */
+
+
 public class Attack : MonoBehaviour {
 
     [SerializeField]
@@ -13,6 +22,9 @@ public class Attack : MonoBehaviour {
     float speed = 1;
     [SerializeField]
     float distance = 1;
+
+    [SerializeField]
+    private Animator anim;
 
     float timeOfLastAttack;
     [SerializeField]
@@ -39,7 +51,12 @@ public class Attack : MonoBehaviour {
 
 
         if (Input.GetButtonDown("Fire" + player.id) && !attacked) {
-            
+
+            anim.SetBool("idling", false);
+            anim.SetBool("attacking", true);
+            anim.SetBool("moving", false);
+            anim.SetBool("jumping", false);
+
             this.GetComponent<BoxCollider2D>().enabled = true;
 
             scriptRotation.RotateDown();
@@ -49,6 +66,11 @@ public class Attack : MonoBehaviour {
         }
 
         if(attacked && Time.time > timeOfLastAttack + cooldownBetweenAttacks) {
+
+            anim.SetBool("idling", true);
+            anim.SetBool("attacking", false);
+            anim.SetBool("moving", false);
+            anim.SetBool("jumping", false);
 
             this.GetComponent<BoxCollider2D>().enabled = false;
             attacked = false;
