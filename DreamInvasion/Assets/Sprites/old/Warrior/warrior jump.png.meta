@@ -1,20 +1,23 @@
 fileFormatVersion: 2
-guid: 0e240d203ff07b34eb500f7bf236e339
-timeCreated: 1448156822
+guid: 1e5fbc2e1d54d114080800f72b6eb1d3
+timeCreated: 1448137274
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Warrior animation jump_0
-    21300002: Warrior animation jump_1
-    21300004: Warrior animation jump_2
-    21300006: Warrior animation jump_3
-    21300008: Warrior animation jump_4
-    21300010: Warrior animation jump_5
-    21300012: Warrior animation jump_6
+    21300000: warrior jump_0
+    21300002: warrior jump_1
+    21300004: warrior jump_2
+    21300006: warrior jump_3
+    21300008: warrior jump_4
+    21300010: warrior jump_5
+    21300012: warrior jump_6
+    21300014: warrior jump_7
+    21300016: warrior jump_8
+    21300018: warrior jump_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -36,7 +39,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -57,73 +60,103 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Warrior animation jump_0
+    - name: warrior jump_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 312
-        width: 156
-        height: 156
+        y: 192
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_1
+    - name: warrior jump_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 312
-        width: 156
-        height: 156
+        x: 32
+        y: 192
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_2
+    - name: warrior jump_2
       rect:
         serializedVersion: 2
-        x: 312
-        y: 312
-        width: 156
-        height: 156
+        x: 64
+        y: 192
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_3
+    - name: warrior jump_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 156
-        width: 156
-        height: 156
+        y: 128
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_4
+    - name: warrior jump_4
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 156
-        height: 156
+        x: 32
+        y: 128
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_5
+    - name: warrior jump_5
       rect:
         serializedVersion: 2
-        x: 312
-        y: 156
-        width: 156
-        height: 156
+        x: 64
+        y: 128
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_6
+    - name: warrior jump_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: warrior jump_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 156
-        height: 156
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

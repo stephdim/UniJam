@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 0e240d203ff07b34eb500f7bf236e339
-timeCreated: 1448156822
+guid: 506cc1a3d5971974a855ab210119d646
+timeCreated: 1448157220
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Warrior animation jump_0
-    21300002: Warrior animation jump_1
-    21300004: Warrior animation jump_2
-    21300006: Warrior animation jump_3
-    21300008: Warrior animation jump_4
-    21300010: Warrior animation jump_5
-    21300012: Warrior animation jump_6
+    21300000: Warrior animation attaque_0
+    21300002: Warrior animation attaque_1
+    21300004: Warrior animation attaque_2
+    21300006: Warrior animation attaque_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,37 +54,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Warrior animation jump_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 312
-        width: 156
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_1
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 312
-        width: 156
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_2
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 312
-        width: 156
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_3
+    - name: Warrior animation attaque_0
       rect:
         serializedVersion: 2
         x: 0
@@ -97,7 +64,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_4
+    - name: Warrior animation attaque_1
       rect:
         serializedVersion: 2
         x: 156
@@ -107,7 +74,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_5
+    - name: Warrior animation attaque_2
       rect:
         serializedVersion: 2
         x: 312
@@ -117,7 +84,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warrior animation jump_6
+    - name: Warrior animation attaque_3
       rect:
         serializedVersion: 2
         x: 0
