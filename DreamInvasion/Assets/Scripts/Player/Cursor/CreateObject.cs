@@ -12,6 +12,8 @@ public class CreateObject : MonoBehaviour {
     [SerializeField]
     float cooldown;
     float timer;
+    bool canPut;
+
     void Start() {
         currentObjs = new int[2];
         pool = GameObject.FindGameObjectWithTag("Pool");
@@ -21,13 +23,26 @@ public class CreateObject : MonoBehaviour {
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
         isOk = true;
         timer = cooldown;
+        canPut = true;
 	}
 	
 	void Update() {
-	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk) {
+	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk && canPut) {
             Create();
+            canPut = false;
+        } else if (!canPut) {
+            if (timer >= 0) {
+                timer -= Time.deltaTime;
+            } else {
+                canPut = true;
+                timer = cooldown;
+            }
         }
 	}
+
+    void InstanciateObjs() {
+
+    }
 
     void Create() {
         if (currentObjs[0] <= 25) {
