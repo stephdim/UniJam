@@ -64,4 +64,10 @@ public class Square : MonoBehaviour {
             timer = cooldown;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player")) {
+            other.GetComponent<Health>().TakeDamage(1);
+        }
+    }
 }

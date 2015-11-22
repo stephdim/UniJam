@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     int nbLevels;
-    int currentlevel;
+    public int currentlevel;
     int currentLoser;
 
     // Use this for initialization

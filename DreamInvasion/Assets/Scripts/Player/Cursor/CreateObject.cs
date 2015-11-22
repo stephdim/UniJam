@@ -19,8 +19,8 @@ public class CreateObject : MonoBehaviour {
     float timer;
 
     void Start() {
-        posCurrent = new Vector2(.15f, .5f);
-        posNext = new Vector2(1.93f, -.13f);
+        posCurrent = new Vector2(1.24f, .11f);
+        posNext = new Vector2(-1.35f, -.07f);
         nbObjs = 0;
         pool = GameObject.FindGameObjectWithTag("Pool");
         //boss = GameObject.FindGameObjectWithTag("Boss");
