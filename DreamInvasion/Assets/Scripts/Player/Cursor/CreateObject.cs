@@ -51,10 +51,12 @@ public class CreateObject : MonoBehaviour {
         void Create() {
         int rand = Random.Range(1, 101);
         GameObject go = new GameObject();
-        if (rand <= 50) {
+        if (rand <= 35) {
             go = Instantiate(Resources.Load("Prefabs/Fire")) as GameObject;
-        } else if (rand <= 100) {
+        } else if (rand <= 60) {
             go = Instantiate(Resources.Load("Prefabs/Square")) as GameObject;
+        } else if (rand <= 100) {
+            go = Instantiate(Resources.Load("Prefabs/TonneauExplosif")) as GameObject;
         }
 
         go.transform.SetParent(boss.transform);
@@ -71,8 +73,11 @@ public class CreateObject : MonoBehaviour {
             objs[i].GetComponent<BoxCollider2D>().enabled = false;
             if (objs[i].GetComponent<Fire>() != null) {
                 objs[i].GetComponent<Fire>().enabled = false;
-            } else {
+            } else if (objs[i].GetComponent<Square>() != null) {
                 objs[i].GetComponent<Square>().enabled = false;
+            } else {
+                objs[i].GetComponent<Rigidbody2D>().isKinematic = true;
+                objs[i].GetComponent<StartBarrelExplosionAnimation>().enabled = false;
             }
         }
     }
@@ -93,11 +98,16 @@ public class CreateObject : MonoBehaviour {
             objs[0].transform.position = new Vector2(transform.position.x, y + 0.33f);
             objs[0].GetComponent<BoxCollider2D>().enabled = true;
             objs[0].GetComponent<Fire>().enabled = true;
-        } else {
+        } else if (objs[0].GetComponent<Square>() != null){
             objs[0].transform.position = transform.position;
             objs[0].GetComponent<BoxCollider2D>().enabled = true;
             objs[0].GetComponent<Square>().enabled = true;
             objs[0].GetComponent<Square>().yMin = y + 0.65f;
+        } else {
+            objs[0].transform.position = new Vector2(transform.position.x, y + 5f);
+            objs[0].GetComponent<BoxCollider2D>().enabled = true;
+            objs[0].GetComponent<Rigidbody2D>().isKinematic = false;
+            objs[0].GetComponent<StartBarrelExplosionAnimation>().enabled = true;
         }
         objs[0].transform.SetParent(pool.transform);
         objs[0] = objs[1];
