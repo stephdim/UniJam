@@ -9,7 +9,9 @@ public class CreateObject : MonoBehaviour {
     DetectPlateform detectPlateform;
     GameObject pool;
     public bool isOk;
-
+    [SerializeField]
+    float cooldown;
+    float timer;
     void Start() {
         currentObjs = new int[2];
         pool = GameObject.FindGameObjectWithTag("Pool");
@@ -18,6 +20,7 @@ public class CreateObject : MonoBehaviour {
         }
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
         isOk = true;
+        timer = cooldown;
 	}
 	
 	void Update() {
