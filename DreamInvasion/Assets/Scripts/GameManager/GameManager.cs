@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     GameObject[] players;
     GameObject[] levels;
     GameObject[] cursors;
+    GameObject[] bosses;
     GameObject[] safezones;
 
     [SerializeField]
@@ -61,11 +62,14 @@ public class GameManager : MonoBehaviour {
 
     void Awake () {
         players = GameObject.FindGameObjectsWithTag("Player");
-        
+        bosses = GameObject.FindGameObjectsWithTag("Bosses");
         cursors = GameObject.FindGameObjectsWithTag("Cursor");
         levels = new GameObject[nbLevels];
         safezones = new GameObject[levels.Length - 1];
         levels[0] = GameObject.Find("Level0");
+        for (int i = 0; i < bosses.Length; ++i) {
+            bosses[i].SetActive(false);
+        }
         for (int i = 1; i < nbLevels; ++i) {
             levels[i] = GameObject.Find("Level"+i);
             levels[i].SetActive(false);
