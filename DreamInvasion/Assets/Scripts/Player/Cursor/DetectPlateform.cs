@@ -12,13 +12,13 @@ public class DetectPlateform : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Plateform")) {
-            Plateforms.Add(other.transform.parent.gameObject);
+            Plateforms.Add(other.transform.gameObject);
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Plateform")) {
-            Plateforms.Remove(other.transform.parent.gameObject);
+            Plateforms.Remove(other.transform.gameObject);
         }
     }
 }

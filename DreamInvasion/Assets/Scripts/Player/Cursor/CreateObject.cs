@@ -5,47 +5,110 @@ using System.Collections.Generic;
 public class CreateObject : MonoBehaviour {
 
     
-    int[] currentObjs; // 0 : current, 1 : next
+    int[] currentRand; // 0 : current, 1 : next
+    GameObject[] currentGos;
+    int current;
     DetectPlateform detectPlateform;
+    GameObject pool;
+    GameObject boss;
+    public bool isOk;
+    [SerializeField]
+    float cooldown;
+    float timer;
+    bool canPut;
+    Spike[] spike;
+    Square[] square;
 
     void Start() {
-        currentObjs = new int[2];
-        for (int i = 0; i < currentObjs.Length; ++i) {
-            currentObjs[i] = Random.Range(1, 101);
-        }
+        currentRand = new int[2];
+        currentGos = new GameObject[2];
+        spike = new Spike[2];
+        square = new Square[2];
+        pool = GameObject.FindGameObjectWithTag("Pool");
+        boss = GameObject.FindGameObjectWithTag("Boss");
+        //for (int i = 0; i < currentRand.Length; ++i) {
+        //    currentRand[i] = Random.Range(1, 101);
+        //}
+        currentRand[0] = Random.Range(1, 101);
+        Create();
+        Create();
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
+        isOk = true;
+        timer = cooldown;
+        canPut = true;
+        current = 0;
 	}
 	
 	void Update() {
-	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id)) {
-            Create();
+	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk && canPut) {
+            PlaceObj();
+            canPut = false;
+        } else if (!canPut) {
+            if (timer >= 0) {
+                timer -= Time.deltaTime;
+            } else {
+                canPut = true;
+                timer = cooldown;
+            }
         }
 	}
 
-    void Create() {
-        if (currentObjs[0] <= 25) {
-            float y = -10;
-            for (int i = 0; i < detectPlateform.Plateforms.Count; ++i) {
-                if (detectPlateform.Plateforms[i].transform.position.y <= transform.position.y && detectPlateform.Plateforms[i].transform.position.y > y) {
-                    y = detectPlateform.Plateforms[i].transform.position.y;
-                }
-            }
-            if (y == -10) return;
-            GameObject go = Instantiate(Resources.Load("Prefabs/Square"), transform.position, Quaternion.identity) as GameObject;
-            go.GetComponent<Square>().yMin = y;
-        } else if (currentObjs[0] <= 50) {
-            float y = -10;
-            for (int i = 0; i < detectPlateform.Plateforms.Count; ++i) {
-                if (detectPlateform.Plateforms[i].transform.position.y <= transform.position.y && detectPlateform.Plateforms[i].transform.position.y > y) {
-                    y = detectPlateform.Plateforms[i].transform.position.y;
-                }
-            }
-            if (y == -10) return;
-            GameObject go = Instantiate(Resources.Load("Prefabs/Spike"), new Vector2(transform.position.x, y), Quaternion.identity) as GameObject;
-        } else {
-            Debug.Log(currentObjs[0]);
+    void PlaceObj() {
+        float y = -10;
+        if (spike[(current + 1) % 2] != null) {
+            spike[(current + 1) % 2].enabled = true;
         }
-        currentObjs[0] = currentObjs[1];
-        currentObjs[1] = Random.Range(1, 101);
+        for (int i = 0; i < detectPlateform.Plateforms.Count; ++i) {
+            if (detectPlateform.Plateforms[i].transform.position.y <= transform.position.y && detectPlateform.Plateforms[i].transform.position.y > y) {
+                y = detectPlateform.Plateforms[i].transform.position.y;
+            }
+        }
+        if (y == -10) return;
+
+        currentGos[(current+1)%2].transform.SetParent(null);
+        if (square[(current + 1) % 2] != null) {
+            square[(current + 1) % 2].yMin = y;
+            square[(current + 1) % 2].enabled = true;
+        }
+        currentGos[current].transform.position = currentGos[(current + 1) % 2].transform.position;
+        if (spike[(current + 1) % 2] != null) {
+            currentGos[(current + 1) % 2].transform.position = new Vector2(transform.position.x, y);
+        } else {
+            currentGos[(current + 1) % 2].transform.position = transform.position;
+        }
+        currentGos[(current + 1) % 2].transform.SetParent(pool.transform);
+        currentGos[(current + 1) % 2] = currentGos[current];
+        Create();
+    }
+
+    void Create() {
+        Vector3 pos;
+        if (current == 0) {
+            pos = new Vector2(.15f, .5f);
+        } else {
+            pos = new Vector2(1.93f, -.13f);
+        }
+        if (currentRand[0] <= 50) {
+            GameObject go = Instantiate(Resources.Load("Prefabs/Square")) as GameObject;
+            go.transform.SetParent(boss.transform);
+            go.transform.localPosition = pos;
+            go.transform.localScale = .5f * go.transform.localScale;
+            currentGos[current] = go;
+            square[current] = currentGos[current].GetComponent<Square>();
+            square[current].enabled = false;
+        } else if (currentRand[0] <= 100) {
+            GameObject go = Instantiate(Resources.Load("Prefabs/Spike")) as GameObject;
+            currentGos[current] = go;
+            go.transform.SetParent(boss.transform);
+            go.transform.localPosition = pos;
+            go.transform.localScale = .5f * go.transform.localScale;
+            spike[current] = currentGos[current].GetComponent<Spike>();
+            spike[current].enabled = false;
+        } else {
+            Debug.Log(currentRand[0]);
+        }
+        currentRand[0] = currentRand[1];
+        currentRand[1] = Random.Range(1, 101);
+        current = (current + 1) % 2;
     }
 }

@@ -6,9 +6,11 @@ public class EndLevel : MonoBehaviour {
 
     public static event Action OnLevelFinished;
 
-    void OnTriggerEnter2D() {
-        if (OnLevelFinished != null) {
-            OnLevelFinished();
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player")) {
+            if (OnLevelFinished != null) {
+                OnLevelFinished();
+            }
         }
     }
 }
