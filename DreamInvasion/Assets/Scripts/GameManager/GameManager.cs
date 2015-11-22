@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
                 currentlevel = 0;
                 Time.timeScale = 0f;
                 Debug.Log("Game Over");
+                return;
             }
             levels[currentlevel].SetActive(true);
         } else {
@@ -91,8 +92,8 @@ public class GameManager : MonoBehaviour {
                 players[i].SetActive(true);
                 cursors[i].SetActive(false);
             }
-            players[0].transform.position = new Vector3(1.3f, -2.7f, 0);
-            players[1].transform.position = new Vector3(-1.3f, -2.7f, 0);
+            players[0].transform.position = new Vector3(1.3f, -2.6f, 0);
+            players[1].transform.position = new Vector3(-1.3f, -2.6f, 0);
         } else {
             for (int i = 0; i < players.Length; ++i) {
                 if (i+1 == currentLoser) {
