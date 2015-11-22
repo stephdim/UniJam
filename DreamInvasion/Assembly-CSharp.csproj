@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EndLevel.cs" />
      <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager\ResetLevel.cs" />
      <Compile Include="Assets\Scripts\Player\Character.cs" />
      <Compile Include="Assets\Scripts\Player\Cursor\CreateObject.cs" />
      <Compile Include="Assets\Scripts\Player\Cursor\DetectPlateform.cs" />
@@ -67,6 +68,7 @@
      <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
      <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
      <Compile Include="Assets\Scripts\StartBarrelExplosionAnimation.cs" />
+     <Compile Include="Assets\Scripts\StartLevel.cs" />
      <Compile Include="Assets\Scripts\TestDeplacementAnim.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

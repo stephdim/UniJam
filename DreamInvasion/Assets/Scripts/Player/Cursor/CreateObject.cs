@@ -7,20 +7,42 @@ public class CreateObject : MonoBehaviour {
     
     int[] currentObjs; // 0 : current, 1 : next
     DetectPlateform detectPlateform;
+    GameObject pool;
+    public bool isOk;
+    [SerializeField]
+    float cooldown;
+    float timer;
+    bool canPut;
 
     void Start() {
         currentObjs = new int[2];
+        pool = GameObject.FindGameObjectWithTag("Pool");
         for (int i = 0; i < currentObjs.Length; ++i) {
             currentObjs[i] = Random.Range(1, 101);
         }
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
+        isOk = true;
+        timer = cooldown;
+        canPut = true;
 	}
 	
 	void Update() {
-	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id)) {
+	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk && canPut) {
             Create();
+            canPut = false;
+        } else if (!canPut) {
+            if (timer >= 0) {
+                timer -= Time.deltaTime;
+            } else {
+                canPut = true;
+                timer = cooldown;
+            }
         }
 	}
+
+    void InstanciateObjs() {
+
+    }
 
     void Create() {
         if (currentObjs[0] <= 25) {
@@ -32,6 +54,7 @@ public class CreateObject : MonoBehaviour {
             }
             if (y == -10) return;
             GameObject go = Instantiate(Resources.Load("Prefabs/Square"), transform.position, Quaternion.identity) as GameObject;
+            go.transform.SetParent(pool.transform);
             go.GetComponent<Square>().yMin = y;
         } else if (currentObjs[0] <= 50) {
             float y = -10;
@@ -42,6 +65,7 @@ public class CreateObject : MonoBehaviour {
             }
             if (y == -10) return;
             GameObject go = Instantiate(Resources.Load("Prefabs/Spike"), new Vector2(transform.position.x, y), Quaternion.identity) as GameObject;
+            go.transform.SetParent(pool.transform);
         } else {
             Debug.Log(currentObjs[0]);
         }

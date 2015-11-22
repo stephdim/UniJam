@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour {
     int currentlevel;
     int currentLoser;
 
-	// Use this for initialization
+    // Use this for initialization
+    public static event Action OnNewLevel;
+
 
     void OnEnable() {
         Health.OnDeath += OnDeath;
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour {
                 currentlevel = 0;
                 Time.timeScale = 0f;
                 Debug.Log("Game Over");
+                return;
             }
             levels[currentlevel].SetActive(true);
         } else {
@@ -47,7 +50,9 @@ public class GameManager : MonoBehaviour {
         }
         SetPlayers();
         SetCamera();
-
+        if (OnNewLevel != null) {
+            OnNewLevel();
+        }
         foreach (GameObject player in players) {
             player.GetComponent<Health>().lifeLeft = player.GetComponent<Character>().lifeMax;
         }
@@ -91,8 +96,8 @@ public class GameManager : MonoBehaviour {
                 players[i].SetActive(true);
                 cursors[i].SetActive(false);
             }
-            players[0].transform.position = new Vector3(1.3f, -2.7f, 0);
-            players[1].transform.position = new Vector3(-1.3f, -2.7f, 0);
+            players[0].transform.position = new Vector3(1.3f, -2.6f, 0);
+            players[1].transform.position = new Vector3(-1.3f, -2.6f, 0);
         } else {
             for (int i = 0; i < players.Length; ++i) {
                 if (i+1 == currentLoser) {
