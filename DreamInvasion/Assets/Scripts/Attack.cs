@@ -17,8 +17,6 @@ public class Attack : MonoBehaviour {
     [SerializeField]
     int attack_speed = 1;
     [SerializeField]
-    string enemy;
-    [SerializeField]
     float speed = 1;
     [SerializeField]
     float distance = 1;
@@ -40,7 +38,6 @@ public class Attack : MonoBehaviour {
     // Use this for initialization
     void Start () {
         scriptRotation = this.gameObject.GetComponentInParent<RotateOnKeyPressed>();
-        enemy = "Test_attack";
         attacked = false;
         origin = this.transform.position;
         player = GetComponentInParent<Character>();
@@ -85,6 +82,7 @@ public class Attack : MonoBehaviour {
         
         if (other.CompareTag("Player")) {
             other.GetComponent<Health>().TakeDamage(damage);
+            Debug.Log(other.GetComponent<Character>().id);
         }
     }
 }
