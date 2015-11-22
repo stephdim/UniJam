@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake () {
         players = GameObject.FindGameObjectsWithTag("Player");
+        
         cursors = GameObject.FindGameObjectsWithTag("Cursor");
         levels = new GameObject[nbLevels];
         safezones = new GameObject[levels.Length - 1];
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour {
             players[i].GetComponent<Character>().id = i + 1;
             cursors[i].GetComponent<Stats>().id = i + 1;
             cursors[i].SetActive(false);
+            Debug.Log("id : "+(i + 1));
         }
     }
     // Update is called once per frame
@@ -89,6 +91,8 @@ public class GameManager : MonoBehaviour {
                 players[i].SetActive(true);
                 cursors[i].SetActive(false);
             }
+            players[0].transform.position = new Vector3(1.3f, -2.7f, 0);
+            players[1].transform.position = new Vector3(-1.3f, -2.7f, 0);
         } else {
             for (int i = 0; i < players.Length; ++i) {
                 if (i+1 == currentLoser) {
@@ -96,7 +100,7 @@ public class GameManager : MonoBehaviour {
                     cursors[i].SetActive(true);
                 } else {
                     players[i].SetActive(true);
-                    players[i].transform.position = safezones[i].transform.position;
+                    players[i].transform.position = safezones[currentlevel-1].transform.position;
                     cursors[i].SetActive(false);
                 }
             }
