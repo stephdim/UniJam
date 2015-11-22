@@ -12,6 +12,7 @@ public class CreateObject : MonoBehaviour {
     GameObject[] objs;
     DetectPlateform detectPlateform;
     GameObject pool;
+    [SerializeField]
     GameObject boss;
     [SerializeField]
     float cooldown;
@@ -22,7 +23,7 @@ public class CreateObject : MonoBehaviour {
         posNext = new Vector2(1.93f, -.13f);
         nbObjs = 0;
         pool = GameObject.FindGameObjectWithTag("Pool");
-        boss = GameObject.FindGameObjectWithTag("Boss");
+        //boss = GameObject.FindGameObjectWithTag("Boss");
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
         objs = new GameObject[2];
         isOk = true;
@@ -58,7 +59,7 @@ public class CreateObject : MonoBehaviour {
         } else if (rand <= 100) {
             go = Instantiate(Resources.Load("Prefabs/TonneauExplosif")) as GameObject;
         }
-
+        Debug.Log(boss);
         go.transform.SetParent(boss.transform);
         go.transform.localScale = .5f * go.transform.localScale;
         if (nbObjs == 0) {
