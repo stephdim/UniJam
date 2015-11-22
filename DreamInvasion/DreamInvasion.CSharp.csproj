@@ -51,11 +51,17 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -80,6 +86,7 @@
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\EndLevel.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager\ResetLevel.cs" />
     <Compile Include="Assets\Scripts\Player\Character.cs" />
     <Compile Include="Assets\Scripts\Player\Cursor\CreateObject.cs" />
     <Compile Include="Assets\Scripts\Player\Cursor\DetectPlateform.cs" />
@@ -90,12 +97,13 @@
     <Compile Include="Assets\Scripts\Player\MyPlatformerCharacter2D.cs" />
     <Compile Include="Assets\Scripts\RotateOnKeyPressed.cs" />
     <Compile Include="Assets\Scripts\RotateSword.cs" />
+    <Compile Include="Assets\Scripts\Spawnable\Fire.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Mob.cs" />
     <Compile Include="Assets\Scripts\Spawnable\ObjectType.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Spawnable.cs" />
-    <Compile Include="Assets\Scripts\Spawnable\Spike.cs" />
     <Compile Include="Assets\Scripts\Spawnable\Square.cs" />
     <Compile Include="Assets\Scripts\StartBarrelExplosionAnimation.cs" />
+    <Compile Include="Assets\Scripts\StartLevel.cs" />
     <Compile Include="Assets\Scripts\TestDeplacementAnim.cs" />
   </ItemGroup>
   <ItemGroup>
