@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour {
     int currentlevel;
     int currentLoser;
 
-	// Use this for initialization
+    // Use this for initialization
+    public static event Action OnNewLevel;
+
 
     void OnEnable() {
         Health.OnDeath += OnDeath;
@@ -48,7 +50,9 @@ public class GameManager : MonoBehaviour {
         }
         SetPlayers();
         SetCamera();
-
+        if (OnNewLevel != null) {
+            OnNewLevel();
+        }
         foreach (GameObject player in players) {
             player.GetComponent<Health>().lifeLeft = player.GetComponent<Character>().lifeMax;
         }
