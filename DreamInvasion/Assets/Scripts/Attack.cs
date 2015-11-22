@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour {
     float distance = 1;
 
     [SerializeField]
-    private Animator m_Anim;
+    public Animator m_Anim;
 
 
     float timeOfLastAttack;

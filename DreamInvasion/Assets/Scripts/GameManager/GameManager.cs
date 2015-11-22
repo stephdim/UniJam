@@ -73,8 +73,11 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         for (int i = 0; i < players.Length; ++i) {
+
+            Debug.Log(" players[i]");
+
             players[i].GetComponent<Character>().id = i + 1;
-            Debug.Log(players);
+
             cursors[i].GetComponent<Stats>().id = i + 1;
             cursors[i].SetActive(false);
             Debug.Log("id : "+(i + 1));

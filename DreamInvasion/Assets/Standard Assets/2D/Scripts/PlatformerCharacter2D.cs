@@ -34,6 +34,7 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+            //Debug.Log(m_Rigidbody2D.velocity.y);
             if (!Mathf.Approximately(m_Rigidbody2D.velocity.y, 0.0f) && !m_Anim.GetBool("attack")) {
 
                 m_Anim.SetBool("jump", true);
