@@ -4,13 +4,17 @@ using System.Collections;
 public class Attack : MonoBehaviour {
 
     [SerializeField]
-    int damage = 1;
+    int damage;
     [SerializeField]
-    int attack_speed = 1;
+    int attack_speed;
     [SerializeField]
-    float speed = 1;
+    float speed;
     [SerializeField]
-    float distance = 1;
+    float distance;
+
+    [SerializeField]
+    public Animator m_Anim;
+
 
     float timeOfLastAttack;
     [SerializeField]
@@ -36,7 +40,12 @@ public class Attack : MonoBehaviour {
 
 
         if (Input.GetButtonDown("Fire" + player.id) && !attacked) {
-            
+
+            m_Anim.SetBool("attack", true);
+            m_Anim.SetBool("move", false);
+            m_Anim.SetBool("idle", false);
+            m_Anim.SetBool("jump", false);
+
             this.GetComponent<BoxCollider2D>().enabled = true;
 
             scriptRotation.RotateDown();
@@ -46,6 +55,11 @@ public class Attack : MonoBehaviour {
         }
 
         if(attacked && Time.time > timeOfLastAttack + cooldownBetweenAttacks) {
+
+            m_Anim.SetBool("attack", false);
+            m_Anim.SetBool("move", false);
+            m_Anim.SetBool("idle", true);
+            m_Anim.SetBool("jump", false);
 
             this.GetComponent<BoxCollider2D>().enabled = false;
             attacked = false;
@@ -59,8 +73,8 @@ public class Attack : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         
         if (other.CompareTag("Player")) {
+            Debug.Log(transform.parent.parent.name);
             other.GetComponent<Health>().TakeDamage(damage);
-            Debug.Log(other.GetComponent<Character>().id);
         }
     }
 }

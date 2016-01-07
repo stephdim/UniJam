@@ -4,45 +4,41 @@ using System.Collections.Generic;
 
 public class CreateObject : MonoBehaviour {
 
-    
-    int[] currentRand; // 0 : current, 1 : next
-    GameObject[] currentGos;
-    int current;
+    Vector2 posCurrent;
+    Vector2 posNext;
+    int nbObjs;
+    public bool isOk;
+    bool canPut;
+    GameObject[] objs;
     DetectPlateform detectPlateform;
     GameObject pool;
+    [SerializeField]
     GameObject boss;
-    public bool isOk;
     [SerializeField]
     float cooldown;
     float timer;
-    bool canPut;
-    Spike[] spike;
-    Square[] square;
 
     void Start() {
-        currentRand = new int[2];
-        currentGos = new GameObject[2];
-        spike = new Spike[2];
-        square = new Square[2];
+        posCurrent = new Vector2(1.24f, .11f);
+        posNext = new Vector2(-1.35f, -.07f);
+        nbObjs = 0;
         pool = GameObject.FindGameObjectWithTag("Pool");
-        boss = GameObject.FindGameObjectWithTag("Boss");
-        //for (int i = 0; i < currentRand.Length; ++i) {
-        //    currentRand[i] = Random.Range(1, 101);
-        //}
-        currentRand[0] = Random.Range(1, 101);
-        Create();
-        Create();
+        //boss = GameObject.FindGameObjectWithTag("Boss");
         detectPlateform = transform.parent.GetComponentInChildren<DetectPlateform>();
+        objs = new GameObject[2];
         isOk = true;
-        timer = cooldown;
         canPut = true;
-        current = 0;
-	}
-	
-	void Update() {
-	    if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk && canPut) {
-            PlaceObj();
-            canPut = false;
+        timer = cooldown;
+    }
+
+    void Update() {
+        if (nbObjs < 2) {
+            Create();
+            nbObjs++;
+        }
+        if (Input.GetButtonDown("Fire" + transform.parent.GetComponentInChildren<Stats>().id) && isOk && canPut) {
+            SetPos();
+            nbObjs--;
         } else if (!canPut) {
             if (timer >= 0) {
                 timer -= Time.deltaTime;
@@ -51,13 +47,45 @@ public class CreateObject : MonoBehaviour {
                 timer = cooldown;
             }
         }
-	}
+    }
 
-    void PlaceObj() {
-        float y = -10;
-        if (spike[(current + 1) % 2] != null) {
-            spike[(current + 1) % 2].enabled = true;
+        void Create() {
+        int rand = Random.Range(1, 101);
+        GameObject go;
+        if (rand <= 35) {
+            go = Instantiate(Resources.Load("Prefabs/Fire")) as GameObject;
+        } else if (rand <= 60) {
+            go = Instantiate(Resources.Load("Prefabs/Square")) as GameObject;
+        } else {
+            go = Instantiate(Resources.Load("Prefabs/TonneauExplosif")) as GameObject;
         }
+        go.transform.SetParent(boss.transform);
+        go.transform.localScale = .5f * go.transform.localScale;
+        if (nbObjs == 0) {
+            go.transform.localPosition = posCurrent;
+            objs[0] = go;
+        } else {
+            go.transform.localPosition = posNext;
+            objs[1] = go;
+        }
+        for (int i = 0; i <= nbObjs; ++i) {
+            objs[i].GetComponent<BoxCollider2D>().enabled = false;
+            if (objs[i].GetComponent<Fire>() != null) {
+                objs[i].GetComponent<Fire>().enabled = false;
+            } else if (objs[i].GetComponent<Square>() != null) {
+                objs[i].GetComponent<Square>().enabled = false;
+            } else {
+                objs[i].GetComponent<Rigidbody2D>().isKinematic = true;
+                objs[i].GetComponent<StartBarrelExplosionAnimation>().enabled = false;
+            }
+        }
+    }
+
+    void SetPos() {
+        objs[0].transform.SetParent(null);
+
+        float y = -10;
+
         for (int i = 0; i < detectPlateform.Plateforms.Count; ++i) {
             if (detectPlateform.Plateforms[i].transform.position.y <= transform.position.y && detectPlateform.Plateforms[i].transform.position.y > y) {
                 y = detectPlateform.Plateforms[i].transform.position.y;
@@ -65,50 +93,25 @@ public class CreateObject : MonoBehaviour {
         }
         if (y == -10) return;
 
-        currentGos[(current+1)%2].transform.SetParent(null);
-        if (square[(current + 1) % 2] != null) {
-            square[(current + 1) % 2].yMin = y;
-            square[(current + 1) % 2].enabled = true;
-        }
-        currentGos[current].transform.position = currentGos[(current + 1) % 2].transform.position;
-        if (spike[(current + 1) % 2] != null) {
-            currentGos[(current + 1) % 2].transform.position = new Vector2(transform.position.x, y);
+        if (objs[0].GetComponent<Fire>() != null) {
+            objs[0].transform.position = new Vector2(transform.position.x, y + 0.33f);
+            objs[0].GetComponent<BoxCollider2D>().enabled = true;
+            objs[0].GetComponent<Fire>().enabled = true;
+        } else if (objs[0].GetComponent<Square>() != null){
+            objs[0].transform.position = transform.position;
+            objs[0].GetComponent<BoxCollider2D>().enabled = true;
+            objs[0].GetComponent<Square>().enabled = true;
+            objs[0].GetComponent<Square>().yMin = y + 0.65f;
         } else {
-            currentGos[(current + 1) % 2].transform.position = transform.position;
+            objs[0].transform.position = new Vector2(transform.position.x, y + 5f);
+            objs[0].GetComponent<BoxCollider2D>().enabled = true;
+            objs[0].GetComponent<Rigidbody2D>().isKinematic = false;
+            objs[0].GetComponent<StartBarrelExplosionAnimation>().enabled = true;
         }
-        currentGos[(current + 1) % 2].transform.SetParent(pool.transform);
-        currentGos[(current + 1) % 2] = currentGos[current];
-        Create();
-    }
-
-    void Create() {
-        Vector3 pos;
-        if (current == 0) {
-            pos = new Vector2(.15f, .5f);
-        } else {
-            pos = new Vector2(1.93f, -.13f);
-        }
-        if (currentRand[0] <= 50) {
-            GameObject go = Instantiate(Resources.Load("Prefabs/Square")) as GameObject;
-            go.transform.SetParent(boss.transform);
-            go.transform.localPosition = pos;
-            go.transform.localScale = .5f * go.transform.localScale;
-            currentGos[current] = go;
-            square[current] = currentGos[current].GetComponent<Square>();
-            square[current].enabled = false;
-        } else if (currentRand[0] <= 100) {
-            GameObject go = Instantiate(Resources.Load("Prefabs/Spike")) as GameObject;
-            currentGos[current] = go;
-            go.transform.SetParent(boss.transform);
-            go.transform.localPosition = pos;
-            go.transform.localScale = .5f * go.transform.localScale;
-            spike[current] = currentGos[current].GetComponent<Spike>();
-            spike[current].enabled = false;
-        } else {
-            Debug.Log(currentRand[0]);
-        }
-        currentRand[0] = currentRand[1];
-        currentRand[1] = Random.Range(1, 101);
-        current = (current + 1) % 2;
+        objs[0].transform.SetParent(pool.transform);
+        objs[0] = objs[1];
+        objs[0].transform.localPosition = posCurrent;
+        objs[1] = null;
+        canPut = false;
     }
 }
