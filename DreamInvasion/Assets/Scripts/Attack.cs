@@ -4,13 +4,13 @@ using System.Collections;
 public class Attack : MonoBehaviour {
 
     [SerializeField]
-    int damage = 1;
+    int damage;
     [SerializeField]
-    int attack_speed = 1;
+    int attack_speed;
     [SerializeField]
-    float speed = 1;
+    float speed;
     [SerializeField]
-    float distance = 1;
+    float distance;
 
     [SerializeField]
     public Animator m_Anim;
@@ -73,8 +73,8 @@ public class Attack : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         
         if (other.CompareTag("Player")) {
+            Debug.Log(transform.parent.parent.name);
             other.GetComponent<Health>().TakeDamage(damage);
-            Debug.Log(other.GetComponent<Character>().id);
         }
     }
 }

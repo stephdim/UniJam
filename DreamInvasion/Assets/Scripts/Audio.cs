@@ -49,4 +49,9 @@ public class Audio : MonoBehaviour {
             currentLevel = manager.currentlevel;
         }
     }
+
+    public void Restart() {
+        audioclip.Stop();
+        audioclip.clip = theme;
+    }
 }

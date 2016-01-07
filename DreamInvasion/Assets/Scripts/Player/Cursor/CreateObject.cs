@@ -51,15 +51,14 @@ public class CreateObject : MonoBehaviour {
 
         void Create() {
         int rand = Random.Range(1, 101);
-        GameObject go = new GameObject();
+        GameObject go;
         if (rand <= 35) {
             go = Instantiate(Resources.Load("Prefabs/Fire")) as GameObject;
         } else if (rand <= 60) {
             go = Instantiate(Resources.Load("Prefabs/Square")) as GameObject;
-        } else if (rand <= 100) {
+        } else {
             go = Instantiate(Resources.Load("Prefabs/TonneauExplosif")) as GameObject;
         }
-        Debug.Log(boss);
         go.transform.SetParent(boss.transform);
         go.transform.localScale = .5f * go.transform.localScale;
         if (nbObjs == 0) {
@@ -70,7 +69,6 @@ public class CreateObject : MonoBehaviour {
             objs[1] = go;
         }
         for (int i = 0; i <= nbObjs; ++i) {
-            Debug.Log("obj : " + objs[i]);
             objs[i].GetComponent<BoxCollider2D>().enabled = false;
             if (objs[i].GetComponent<Fire>() != null) {
                 objs[i].GetComponent<Fire>().enabled = false;
@@ -114,5 +112,6 @@ public class CreateObject : MonoBehaviour {
         objs[0] = objs[1];
         objs[0].transform.localPosition = posCurrent;
         objs[1] = null;
+        canPut = false;
     }
 }

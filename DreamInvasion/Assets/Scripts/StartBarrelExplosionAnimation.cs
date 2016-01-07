@@ -17,6 +17,7 @@ public class StartBarrelExplosionAnimation : MonoBehaviour {
             timer -= Time.deltaTime;
             if (timer <= 0) {
                 if (player != null) {
+                    Debug.Log("barrel");
                     player.GetComponent<Health>().TakeDamage(1);
                 }
                 Destroy(gameObject);

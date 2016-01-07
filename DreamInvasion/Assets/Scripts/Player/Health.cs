@@ -13,7 +13,7 @@ public class Health : MonoBehaviour {
 
     Character scriptCharacter;
     public static event Action<int> OnDeath;
-
+    float cooldown;
     // Use this for initialization
     void Start () {
 
@@ -21,26 +21,31 @@ public class Health : MonoBehaviour {
 
         this.lifeMax = scriptCharacter.lifeMax;
         lifeLeft = lifeMax;
-
+        cooldown = 0.5f;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         lifeSlider.value = lifeLeft / lifeMax;
+        if (cooldown > 0) {
+            cooldown -= Time.deltaTime;
+        }
     }
 
     public void TakeDamage(float damage) {
+        if (cooldown <= 0) {
+            if (lifeLeft - damage <= 0) {
+                if (OnDeath != null) {
+                    OnDeath(scriptCharacter.id);
+                }
 
-        if(lifeLeft-damage <= 0) {
-            if (OnDeath != null) {
-                OnDeath(scriptCharacter.id);
+                //player dead
+
+            } else {
+                lifeLeft = lifeLeft - damage;
             }
-
-            //player dead
-
-        } else {
-            lifeLeft = lifeLeft - damage;
+            cooldown = 0.5f;
         }
     }
 
